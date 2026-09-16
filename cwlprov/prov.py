@@ -106,7 +106,6 @@ def _naive(dt: Optional[datetime.datetime]) -> Optional[datetime.datetime]:
     return dt
 
 
-
 class Provenance:
     def __init__(self, ro: "ResearchObject", run: Optional[str] = None) -> None:
         """Create a Provenance object."""

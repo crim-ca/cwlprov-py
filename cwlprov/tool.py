@@ -1473,8 +1473,10 @@ class Tool(ContextManager["Tool"]):
 
                 c_duration = ""
                 if args.duration:
-                    if c_start_time and c_end_time:
-                        c_duration = " (%s)" % (_naive(c_end_time) - _naive(c_start_time))
+                    c_start_naive = _naive(c_start_time)
+                    c_end_naive = _naive(c_end_time)
+                    if c_start_naive and c_end_naive:
+                        c_duration = " (%s)" % (c_end_naive - c_start_naive)
                     else:
                         c_duration = " (unknown duration)"
 
@@ -1514,8 +1516,10 @@ class Tool(ContextManager["Tool"]):
 
         w_duration = ""
         if args.duration:
-            if start_time and end_time:
-                w_duration = " (%s)" % (_naive(end_time) - _naive(start_time))
+            start_naive = _naive(start_time)
+            end_naive = _naive(end_time)
+            if start_naive and end_naive:
+                w_duration = " (%s)" % (end_naive - start_naive)
             else:
                 w_duration = " (unknown duration)"
 
