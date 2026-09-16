@@ -298,6 +298,7 @@ class Activity(_Prov):
         return cast(Optional[datetime.datetime], self._prov_attr(PROV_ATTR_ENDTIME))
 
     def duration(self) -> Optional[datetime.timedelta]:
+        """Obtain the duration between start/end time with timezone awareness."""
         # Lots of guards in case start or end are missing
         s = _naive(self.start_time())
         e = _naive(self.end_time())
